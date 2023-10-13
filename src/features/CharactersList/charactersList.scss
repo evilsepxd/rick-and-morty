@@ -1,0 +1,7 @@
+.characters__list {
+	margin-top: 61px;
+
+	display: grid;
+	grid-template: 244px / repeat(4, 240px);
+	gap: 24px 20px;
+}
