@@ -1,19 +1,19 @@
-
+import { Link } from 'react-router-dom';
 
 import './charactersItem.scss';
 import '../../style/title.scss';
 
-const CharactersItem = () => {
-
+const CharactersItem = (props) => {
+	const { name, image, species } = props;
 
 	return (
-		<div className="characters__item">
-			<img src="https://pm1.aminoapps.com/6878/7590f2750286a5952f65d5a0ebebc8f328b8163br1-720-901v2_00.jpg" alt="rick" className="characters__item-img" />
+		<Link className="characters__item">
+			<img src={image} alt={name} className="characters__item-img" />
 			<div className="characters__item-inner">
-				<h2 className="characters__item-title title title_card">Rick Sanchez</h2>
-				<div className="characters__item-descr subtitle">Human</div>
+				<h2 className="characters__item-title title title_card">{name}</h2>
+				<div className="characters__item-descr subtitle">{species}</div>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

@@ -1,3 +1,5 @@
+@import '../../style/variables';
+
 .characters {
 	&__form {
 		margin-top: 16px;
@@ -27,7 +29,7 @@
 			border-color: rgba(0, 0, 0, .8);
 		}
 		&:focus {
-			border-color: rgb(0,176,200);
+			border-color: $blue;
 			outline: none;
 		}
 		&-wrapper {

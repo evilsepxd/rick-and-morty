@@ -1,0 +1,31 @@
+.error {
+	&__img {
+		display: block;
+		margin: 0 auto;
+		margin-top: 50px;
+		object-fit: cover;
+		width: 256px;
+		height: 256px;
+		border-radius: 50%;
+	}
+	&__text {
+		text-align: center;
+		font-size: 30px;
+		margin-top: 20px;
+		font-family: Karla;
+
+		animation: floating-text 3s infinite ease-in-out;
+	}
+}
+
+@keyframes floating-text {
+	from {
+		transform: rotate(3deg);
+	}
+	50% {
+		transform: rotate(-3deg);
+	}
+	to {
+		transform: rotate(3deg);
+	}
+}

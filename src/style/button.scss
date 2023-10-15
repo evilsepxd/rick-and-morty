@@ -25,4 +25,11 @@
 	&:hover {
 		background: rgba(33, 150, 243, 0.15);
 	}
+	&:disabled {
+		filter: brightness(.9);
+		cursor: default;
+		&:hover {
+			background: #F2F9FE;
+		}
+	}
 }
