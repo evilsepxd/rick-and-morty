@@ -7,15 +7,29 @@ const initialState = {
 		species: '',
 		gender: '',
 		status: ''
-	}
+	},
+	filtersUpdated: false
 };
 
 const charactersSlice = createSlice({
 	name: 'characters',
 	initialState,
 	reducers: {
-		filtersChanged: (state, action) => {
-			state.filters = action.payload;
+		filtersNameChanged: (state, action) => {
+			state.filters.name = action.payload;
+		},
+		filtersSpeciesChanged: (state, action) => {
+			state.filters.species = action.payload;
+		},
+		filtersGenderChanged: (state, action) => {
+			state.filters.gender = action.payload;
+		},
+		filtersStatusChanged: (state, action) => {
+			state.filters.status = action.payload;
+		},
+		filtersUpdated: (state, action) => { state.filtersUpdated = action.payload },
+		clearCharacters: state => {
+			state.characters = [];
 		},
 		charactersUpdate: (state, action) => {
 			state.characters.push(...action.payload);
@@ -23,6 +37,12 @@ const charactersSlice = createSlice({
 	}
 });
 
-export const { filtersChanged, pageIncreased, charactersUpdate } = charactersSlice.actions;
+export const { filtersNameChanged,
+			filtersSpeciesChanged,
+			filtersGenderChanged,
+			filtersStatusChanged,
+			filtersUpdated,
+			clearCharacters,
+			charactersUpdate } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

@@ -3,7 +3,7 @@ import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import { useGetCharactersQuery } from '../../api/apiSlice';
-import { charactersUpdate } from './charactersSlice';
+import { charactersUpdate, filtersUpdated, clearCharacters } from './charactersSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -14,18 +14,30 @@ const CharactersList = () => {
 
 	const [page, setPage] = useState(1);
 	const characters = useSelector(state => state.characters.characters);
+	const isFiltersUpdated = useSelector(state => state.characters.filtersUpdated);
+
+	const {
+		name,
+		species,
+		gender,
+		status
+	} = useSelector(state => state.characters.filters);
 
 	const {
 		data = [],
 		isLoading,
 		isFetching,
 		isError
-	} = useGetCharactersQuery(page);
+	} = useGetCharactersQuery({ page, name, species, gender, status });
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(charactersUpdate(data))
+		if (isFiltersUpdated) {
+			dispatch(clearCharacters());
+			dispatch(filtersUpdated(false));
+		}
+		dispatch(charactersUpdate(data));
 	}, [data]);
 
 
@@ -40,7 +52,7 @@ const CharactersList = () => {
 		});
 	}
 
-	const handleClick = () => {
+	const loadMore = () => {
 		setPage(page => page + 1);
 	}
 
@@ -53,7 +65,7 @@ const CharactersList = () => {
 			<div className='characters__list'>
 				{ elements }
 			</div>
-			<button className="btn" onClick={handleClick} disabled={isFetching}>LOAD MORE</button>
+			<button className="btn" onClick={loadMore} disabled={isFetching}>LOAD MORE</button>
 		</>
 	);
 }
