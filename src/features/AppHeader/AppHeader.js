@@ -10,11 +10,11 @@ const AppHeader = () => {
 		<header className="header">
 			<div className="container">
 				<div className="header__inner">
-					<Link to='/'>
+					<Link to='/character'>
 						<img src={iconSrc} alt="logo" className="header__logo" />
 					</Link>
 					<div className="header__links">
-						<NavLink to='/' className='header__link'>
+						<NavLink to='/character' className='header__link'>
 							Characters
 						</NavLink>
 						<NavLink to='/locations' className='header__link'>

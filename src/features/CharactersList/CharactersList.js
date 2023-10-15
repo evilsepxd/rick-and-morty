@@ -47,6 +47,7 @@ const CharactersList = () => {
 					name={char.name}
 					image={char.image}
 					species={char.species}
+					id={char.id}
 					key={char.id}
 					/>;
 		});

@@ -4,10 +4,10 @@ import './charactersItem.scss';
 import '../../style/title.scss';
 
 const CharactersItem = (props) => {
-	const { name, image, species } = props;
+	const { name, image, species, id } = props;
 
 	return (
-		<Link className="characters__item">
+		<Link to={`/character/${id}`} className="characters__item">
 			<img src={image} alt={name} className="characters__item-img" />
 			<div className="characters__item-inner">
 				<h2 className="characters__item-title title title_card">{name}</h2>
