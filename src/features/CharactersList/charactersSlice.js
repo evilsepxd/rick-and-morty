@@ -37,12 +37,14 @@ const charactersSlice = createSlice({
 	}
 });
 
-export const { filtersNameChanged,
-			filtersSpeciesChanged,
-			filtersGenderChanged,
-			filtersStatusChanged,
-			filtersUpdated,
-			clearCharacters,
-			charactersUpdate } = charactersSlice.actions;
+export const {
+	filtersNameChanged,
+	filtersSpeciesChanged,
+	filtersGenderChanged,
+	filtersStatusChanged,
+	filtersUpdated,
+	clearCharacters,
+	charactersUpdate
+} = charactersSlice.actions;
 
 export default charactersSlice.reducer;

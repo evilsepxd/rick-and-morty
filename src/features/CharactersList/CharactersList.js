@@ -3,7 +3,11 @@ import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import { useGetCharactersQuery } from '../../api/apiSlice';
-import { charactersUpdate, filtersUpdated, clearCharacters } from './charactersSlice';
+import {
+	charactersUpdate,
+	filtersUpdated,
+	clearCharacters
+} from './charactersSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -28,7 +32,9 @@ const CharactersList = () => {
 		isLoading,
 		isFetching,
 		isError
-	} = useGetCharactersQuery({ page, name, species, gender, status });
+	} = useGetCharactersQuery(
+		{ page, name, species, gender, status }
+	);
 
 	const dispatch = useDispatch();
 

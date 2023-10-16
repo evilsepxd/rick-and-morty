@@ -17,10 +17,10 @@ const AppHeader = () => {
 						<NavLink to='/character' className='header__link'>
 							Characters
 						</NavLink>
-						<NavLink to='/locations' className='header__link'>
+						<NavLink to='/location' className='header__link'>
 							Locations
 						</NavLink>
-						<NavLink to='/episodes' className='header__link'>
+						<NavLink to='/episode' className='header__link'>
 							Episodes
 						</NavLink>
 					</div>

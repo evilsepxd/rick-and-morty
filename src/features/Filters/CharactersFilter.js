@@ -6,7 +6,7 @@ import { filtersNameChanged,
 		filtersStatusChanged,
 		filtersUpdated } from '../CharactersList/charactersSlice';
 
-import './charactersFilter.scss';
+import './filters.scss';
 
 const CharactersFilter = () => {
 
@@ -34,77 +34,77 @@ const CharactersFilter = () => {
 	}
 
 	return (
-		<form className='characters__form'>
-			<div className="characters__input-wrapper">
+		<form className='filters__form'>
+			<div className="filters__input-wrapper">
 				<input 
-					className='characters__input characters__input_text' 
+					className='filters__input filters__input_text' 
 					name='name' 
 					placeholder='Filter by name...'
 					onChange={handleChange}
 				/>
 				<label htmlFor='name'/>
 			</div>
-			<div className="characters__input-wrapper">
+			<div className="filters__input-wrapper">
 				<select
-					className='characters__input characters__input_select' 
+					className='filters__input filters__input_select' 
 					name='species'
 					onChange={handleChange}
 				>
-					<option value='' className='characters__input-option'>
+					<option value='' className='filters__input-option'>
 						Species
 					</option>
-					<option value='human' className='characters__input-option'>
+					<option value='human' className='filters__input-option'>
 						Human
 					</option>
-					<option value='alien' className='characters__input-option'>
+					<option value='alien' className='filters__input-option'>
 						Alien
 					</option>
-					<option value='humanoid' className='characters__input-option'>
+					<option value='humanoid' className='filters__input-option'>
 						Humanoid
 					</option>
 				</select>
 				<label htmlFor='species'/>
 			</div>
-			<div className="characters__input-wrapper">
+			<div className="filters__input-wrapper">
 				<select 
-					className='characters__input characters__input_select' 
+					className='filters__input filters__input_select' 
 					name='gender'
 					onChange={handleChange}
 				>
-					<option value='' className='characters__input-option'>
+					<option value='' className='filters__input-option'>
 						Gender
 					</option>
-					<option value='male' className='characters__input-option'>
+					<option value='male' className='filters__input-option'>
 						Male
 					</option>
-					<option value='female' className='characters__input-option'>
+					<option value='female' className='filters__input-option'>
 						Female
 					</option>
-					<option value='genderless' className='characters__input-option'>
+					<option value='genderless' className='filters__input-option'>
 						Genderless
 					</option>
-					<option value='unknown' className='characters__input-option'>
+					<option value='unknown' className='filters__input-option'>
 						Unknown
 					</option>
 				</select>
 				<label htmlFor='gender'/>
 			</div>
-			<div className="characters__input-wrapper">
+			<div className="filters__input-wrapper">
 				<select 
-					className='characters__input characters__input_select' 
+					className='filters__input filters__input_select' 
 					name='status'
 					onChange={handleChange}
 				>
-					<option value='' className='characters__input-option'>
+					<option value='' className='filters__input-option'>
 						Status
 					</option>
-					<option value='alive' className='characters__input-option'>
+					<option value='alive' className='filters__input-option'>
 						Alive
 					</option>
-					<option value='dead' className='characters__input-option'>
+					<option value='dead' className='filters__input-option'>
 						Dead
 					</option>
-					<option value='unknown' className='characters__input-option'>
+					<option value='unknown' className='filters__input-option'>
 						Unknown
 					</option>
 				</select>

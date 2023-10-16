@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const apiSlice = createApi({
 	reducerPath: '/api',
 	baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api' }),
-	tagTypes: ['Characters', 'Episodes'],
+	tagTypes: ['Characters', 'Episodes', 'Locations'],
 	endpoints: builder => ({
 		getCharacters: builder.query({
 			query: ({
@@ -11,14 +11,12 @@ export const apiSlice = createApi({
 				name,
 				status,
 				species,
-				type,
 				gender
 			}) => {
 				let request = `/character?page=${page}`;
 				if (name) request += `&name=${name}`;
 				if (status) request += `&status=${status}`;
 				if (species) request += `&species=${species}`;
-				if (type) request += `&type=${type}`;
 				if (gender) request += `&gender=${gender}`;
 				console.log(request);
 				return request;
@@ -59,10 +57,28 @@ export const apiSlice = createApi({
 				}
 			},
 			providesTags: ['Episodes']
-		})
+		}),
+		getLocations: builder.query({
+			query: ({
+				page,
+				name,
+				type,
+				dimension
+			}) => {
+				let request = `/location?page=${page}`;
+				if (name) request += `&name=${name}`;
+				if (type) request += `&type=${type}`;
+				if (dimension) request += `&dimension=${dimension}`;
+				console.log(request);
+				return request;
+			},
+			transformResponse: response => response.results,
+			providesTags: ['Locations']
+		}),
 	})
 });
 
 export const { useGetCharactersQuery,
 			useGetSingleCharacterQuery,
-			useGetMultipleEpisodesInfoQuery } = apiSlice;
+			useGetMultipleEpisodesInfoQuery,
+			useGetLocationsQuery } = apiSlice;
