@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import '../../style/listItem.scss';
+import './listItem.scss';
 import '../../style/title.scss';
 
 const EpisodesItem = (props) => {

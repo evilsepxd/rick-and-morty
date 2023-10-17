@@ -1,8 +1,8 @@
-import LocationsItem from '../LocationsItem/LocationsItem';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import LocationsItem from '../../ListItems/LocationsItem';
+import Spinner from '../../Spinner/Spinner';
+import ErrorMessage from '../../ErrorMessage/ErrorMessage';
 
-import { useGetLocationsQuery } from '../../api/apiSlice';
+import { useGetLocationsQuery } from '../../../api/apiSlice';
 import {
 	clearLocations,
 	filtersUpdated,
@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import '../../style/listStyle.scss';
+import '../listStyle.scss';
 
 const LocationsList = () => {
 

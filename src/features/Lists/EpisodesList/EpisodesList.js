@@ -1,8 +1,8 @@
-import EpisodesItem from '../EpisodesItem/EpisodesItem';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import EpisodesItem from '../../ListItems/EpisodesItem';
+import Spinner from '../../Spinner/Spinner';
+import ErrorMessage from '../../ErrorMessage/ErrorMessage';
 
-import { useGetEpisodesQuery } from '../../api/apiSlice';
+import { useGetEpisodesQuery } from '../../../api/apiSlice';
 import {
 	episodesUpdate,
 	filtersUpdated,
@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import '../../style/listStyle.scss';
+import '../listStyle.scss';
 
 const EpisodesList = () => {
 

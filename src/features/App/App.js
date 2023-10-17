@@ -7,15 +7,15 @@ import SingleCharacterPage from "../pages/SingleCharacterPage/SingleCharacterPag
 import SinglePage from "../pages/SinglePage/SinglePage";
 
 import CharactersFilter from '../Filters/CharactersFilter';
-import CharactersList from '../CharactersList/CharactersList';
+import CharactersList from '../Lists/CharactersList/CharactersList';
 import charactersImgSrc from '../../resources/img/logo.svg';
 
 import LocationsFilter from "../Filters/LocationsFilter";
-import LocationsList from "../LocationsList/LocationsList";
+import LocationsList from "../Lists/LocationsList/LocationsList";
 import locationsImgSrc from '../../resources/img/rick-and-morty.png';
 
 import EpisodesFilter from "../Filters/EpisodesFilter";
-import EpisodesList from "../EpisodesList/EpisodesList";
+import EpisodesList from "../Lists/EpisodesList/EpisodesList";
 import episodesImgSrc from '../../resources/img/rick-and-morty2.png';
 
 function App() {

@@ -5,7 +5,7 @@ import {
 	filtersNameChanged,
 	filtersTypeChanged,
 	filtersDimensionChanged
-} from '../LocationsList/locationsSlice';
+} from '../Lists/LocationsList/locationsSlice';
 
 import './filters.scss';
 

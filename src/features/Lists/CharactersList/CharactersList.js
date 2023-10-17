@@ -1,8 +1,8 @@
-import CharactersItem from '../CharactersItem/CharactersItem';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import CharactersItem from '../../ListItems/CharactersItem/CharactersItem';
+import Spinner from '../../Spinner/Spinner';
+import ErrorMessage from '../../ErrorMessage/ErrorMessage';
 
-import { useGetCharactersQuery } from '../../api/apiSlice';
+import { useGetCharactersQuery } from '../../../api/apiSlice';
 import {
 	charactersUpdate,
 	filtersUpdated,
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import './charactersList.scss';
-import '../../style/button.scss';
+import '../../../style/button.scss';
 
 const CharactersList = () => {
 

@@ -4,7 +4,7 @@ import { filtersNameChanged,
 		filtersGenderChanged,
 		filtersSpeciesChanged,
 		filtersStatusChanged,
-		filtersUpdated } from '../CharactersList/charactersSlice';
+		filtersUpdated } from '../Lists/CharactersList/charactersSlice';
 
 import './filters.scss';
 

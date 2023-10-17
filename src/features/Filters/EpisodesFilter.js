@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import {
 	filterNameUpdated,
 	filtersUpdated
-} from '../EpisodesList/episodesSlice';
+} from '../Lists/EpisodesList/episodesSlice';
 
 import './filters.scss';
 

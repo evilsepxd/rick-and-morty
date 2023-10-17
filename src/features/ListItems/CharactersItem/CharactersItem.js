@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import './charactersItem.scss';
-import '../../style/title.scss';
+import '../../../style/title.scss';
 
 const CharactersItem = (props) => {
 	const { name, image, species, id } = props;

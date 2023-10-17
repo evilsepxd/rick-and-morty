@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useGetMultipleCharactersInfoQuery, useGetSingleInfoQuery } from '../../../api/apiSlice';
 
 import GoBackLink from '../../GoBackLink/GoBackLink';
-import CharactersItem from '../../CharactersItem/CharactersItem';
+import CharactersItem from '../../ListItems/CharactersItem/CharactersItem';
 import Spinner from '../../Spinner/Spinner';
 import ErrorMessage from '../../ErrorMessage/ErrorMessage';
 
