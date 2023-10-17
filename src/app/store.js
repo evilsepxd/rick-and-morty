@@ -1,7 +1,7 @@
 import { apiSlice } from '../api/apiSlice';
-import characters from '../features/CharactersList/charactersSlice';
-import locations from '../features/LocationsList/locationsSlice';
-import episodes from '../features/EpisodesList/episodesSlice';
+import characters from '../features/Lists/CharactersList/charactersSlice';
+import locations from '../features/Lists/LocationsList/locationsSlice';
+import episodes from '../features/Lists/EpisodesList/episodesSlice';
 
 import { configureStore } from '@reduxjs/toolkit';
 
