@@ -21,7 +21,6 @@ export const apiSlice = createApi({
 				console.log(request);
 				return request;
 			},
-			transformResponse: response => response.results,
 			providesTags: ['Characters']
 		}),
 		getSingleCharacter: builder.query({
@@ -74,7 +73,6 @@ export const apiSlice = createApi({
 				console.log(request);
 				return request;
 			},
-			transformResponse: response => response.results,
 			providesTags: ['Locations']
 		}),
 		getSingleInfo: builder.query({
@@ -108,7 +106,6 @@ export const apiSlice = createApi({
 				console.log(request);
 				return request;
 			},
-			transformResponse: response => response.results,
 			providesTags: ['Episodes']
 		}),
 		getMultipleEpisodesInfo: builder.query({

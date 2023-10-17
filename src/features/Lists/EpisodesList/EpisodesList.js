@@ -22,11 +22,13 @@ const EpisodesList = () => {
 	const name = useSelector(state => state.episodes.filter);
 
 	const {
-		data = [],
+		data = {},
 		isLoading,
 		isFetching,
 		isError
 	} = useGetEpisodesQuery({ page, name });
+	const { results = [], info = {} } = data;
+	const pages = info.pages;
 
 	const dispatch = useDispatch();
 
@@ -35,8 +37,8 @@ const EpisodesList = () => {
 			dispatch(clearEpisodes());
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(episodesUpdate(data));
-	}, [data]);
+		dispatch(episodesUpdate(results));
+	}, [results]);
 
 	const renderEpisodes = (episodes) => {
 		return episodes.map(item => {
@@ -63,7 +65,7 @@ const EpisodesList = () => {
 			<div className='locations__list'>
 				{ elements }
 			</div>
-			<button className="btn" onClick={loadMore} disabled={isFetching}>LOAD MORE</button>
+			<button className="btn" onClick={loadMore} disabled={isFetching || page >= pages}>LOAD MORE</button>
 		</>
 	);
 }

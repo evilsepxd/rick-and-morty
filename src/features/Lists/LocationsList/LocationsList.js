@@ -26,13 +26,15 @@ const LocationsList = () => {
 	} = useSelector(state => state.locations.filters);
 
 	const {
-		data = [],
+		data = {},
 		isLoading,
 		isFetching,
 		isError
 	} = useGetLocationsQuery(
 		{ page, name, type, dimension }
 	);
+	const { results = [], info = {} } = data;
+	const pages = info.pages;
 
 	const dispatch = useDispatch();
 
@@ -41,8 +43,8 @@ const LocationsList = () => {
 			dispatch(clearLocations());
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(locationsUpdate(data));
-	}, [data]);
+		dispatch(locationsUpdate(results));
+	}, [results]);
 
 	const renderLocations = (locations) => {
 		return locations.map(item => {
@@ -68,7 +70,7 @@ const LocationsList = () => {
 			<div className='locations__list'>
 				{ elements }
 			</div>
-			<button className="btn" onClick={loadMore} disabled={isFetching}>LOAD MORE</button>
+			<button className="btn" onClick={loadMore} disabled={isFetching || page >= pages}>LOAD MORE</button>
 		</>
 	);
 }

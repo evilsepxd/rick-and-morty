@@ -28,13 +28,15 @@ const CharactersList = () => {
 	} = useSelector(state => state.characters.filters);
 
 	const {
-		data = [],
+		data = {},
 		isLoading,
 		isFetching,
 		isError
 	} = useGetCharactersQuery(
 		{ page, name, species, gender, status }
 	);
+	const { results = [], info = {} } = data;
+	const pages = info.pages;
 
 	const dispatch = useDispatch();
 
@@ -43,8 +45,8 @@ const CharactersList = () => {
 			dispatch(clearCharacters());
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(charactersUpdate(data));
-	}, [data]);
+		dispatch(charactersUpdate(results));
+	}, [results]);
 
 
 	const renderCharacters = (chars) => {
@@ -72,7 +74,7 @@ const CharactersList = () => {
 			<div className='characters__list'>
 				{ elements }
 			</div>
-			<button className="btn" onClick={loadMore} disabled={isFetching}>LOAD MORE</button>
+			<button className="btn" onClick={loadMore} disabled={isFetching || page >= pages}>LOAD MORE</button>
 		</>
 	);
 }
