@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import AppHeader from "../AppHeader/AppHeader";
+import Page404 from "../pages/Page404/Page404";
 
 import SectionPage from "../pages/SectionPage/SectionPage";
 import SingleCharacterPage from "../pages/SingleCharacterPage/SingleCharacterPage";
@@ -65,6 +66,7 @@ function App() {
 								}
 							/>
 						<Route path="/episode/:dataID" element={ <SinglePage pageType='episode'/> } />
+						<Route path="*" element={ <Page404/> } />
 					</Routes>
 				</CSSTransition>
 			</SwitchTransition>

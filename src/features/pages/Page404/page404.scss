@@ -1,0 +1,16 @@
+.page404 {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__title {
+		color: #081F32;
+		font-family: Roboto;
+		font-size: 32px;
+		font-weight: 400;
+	}
+	&__img {
+		margin-top: 50px;
+	}
+}
