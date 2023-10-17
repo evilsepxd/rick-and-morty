@@ -1,12 +1,34 @@
+import { useDispatch } from 'react-redux';
 
+import {
+	filtersUpdated,
+	filtersNameChanged,
+	filtersTypeChanged,
+	filtersDimensionChanged
+} from '../LocationsList/locationsSlice';
 
 import './filters.scss';
 
 const LocationsFilter = () => {
 	
+	const dispatch = useDispatch();
 
-	const handleChange = () => {
-		return;
+	const handleChange = (e) => {
+		const t = e.target;
+
+		dispatch(filtersUpdated(true));
+
+		switch (t.name) {
+			case 'name':
+				dispatch(filtersNameChanged(t.value));
+				break;
+			case 'type':
+				dispatch(filtersTypeChanged(t.value));
+				break;
+			case 'dimension':
+				dispatch(filtersDimensionChanged(t.value));
+				break;
+		}
 	}
 
 	return (
@@ -23,7 +45,7 @@ const LocationsFilter = () => {
 			<div className="filters__input-wrapper">
 				<select
 					className='filters__input filters__input_select' 
-					name='species'
+					name='type'
 					onChange={handleChange}
 				>
 					<option value='' className='filters__input-option'>
@@ -35,7 +57,7 @@ const LocationsFilter = () => {
 					<option value='cluster' className='filters__input-option'>
 						Cluster
 					</option>
-					<option value='space-station' className='filters__input-option'>
+					<option value='space station' className='filters__input-option'>
 						Space station
 					</option>
 					<option value='microverse' className='filters__input-option'>
@@ -47,7 +69,7 @@ const LocationsFilter = () => {
 					<option value='resort' className='filters__input-option'>
 						Resort
 					</option>
-					<option value='fantasy-town' className='filters__input-option'>
+					<option value='fantasy town' className='filters__input-option'>
 						Fantasy town
 					</option>
 					<option value='dream' className='filters__input-option'>
@@ -59,28 +81,28 @@ const LocationsFilter = () => {
 			<div className="filters__input-wrapper">
 				<select 
 					className='filters__input filters__input_select' 
-					name='gender'
+					name='dimension'
 					onChange={handleChange}
 				>
 					<option value='' className='filters__input-option'>
 						Dimension
 					</option>
-					<option value='dimension-C-137' className='filters__input-option'>
+					<option value='dimension c-137' className='filters__input-option'>
 						Dimension C-137
 					</option>
-					<option value='Post-Apocalyptic-Dimension' className='filters__input-option'>
+					<option value='post-apocalyptic dimension' className='filters__input-option'>
 						Post-Apocalyptic Dimension
 					</option>
-					<option value='Replacement-Dimension' className='filters__input-option'>
+					<option value='replacement dimension' className='filters__input-option'>
 						Replacement Dimension
 					</option>
-					<option value='Cronenberg-Dimension' className='filters__input-option'>
+					<option value='cronenberg dimension' className='filters__input-option'>
 						Cronenberg Dimension
 					</option>
-					<option value='Fantasy-Dimension' className='filters__input-option'>
+					<option value='fantasy dimension' className='filters__input-option'>
 						Fantasy Dimension
 					</option>
-					<option value='Dimension-5-126' className='filters__input-option'>
+					<option value='dimension 5-126' className='filters__input-option'>
 						Dimension 5-126
 					</option>
 					<option value='unknown' className='filters__input-option'>
