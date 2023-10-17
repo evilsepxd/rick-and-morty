@@ -14,6 +14,10 @@ import LocationsFilter from "../Filters/LocationsFilter";
 import LocationsList from "../LocationsList/LocationsList";
 import locationsImgSrc from '../../resources/img/rick-and-morty.png';
 
+import EpisodesFilter from "../Filters/EpisodesFilter";
+import EpisodesList from "../EpisodesList/EpisodesList";
+import episodesImgSrc from '../../resources/img/rick-and-morty2.png';
+
 function App() {
 	return (
 		<Router>
@@ -39,6 +43,15 @@ function App() {
 						}
 					/>
 				<Route path="/location/:dataID" element={ <SinglePage pageType='location'/> } />
+				<Route path="/episode" 
+					element={
+							<SectionPage
+								FiltersComponent={EpisodesFilter}
+								ListComponent={EpisodesList}
+								imgSrc={episodesImgSrc}
+							/>
+						}
+					/>
 				<Route path="/episode/:dataID" element={ <SinglePage pageType='episode'/> } />
 			</Routes>
 		</Router>
