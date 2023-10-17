@@ -2,29 +2,34 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	episodes: [],
-	filter: ''
+	filter: '',
+	filtersUpdated: false
 }
 
 const episodesSlice = createSlice({
 	name: 'episodes',
 	initialState,
 	reducers: {
-		episodesUpdated: (state, action) => {
-			state.episodes.push(action.payload)
+		episodesUpdate: (state, action) => {
+			state.episodes.push(...action.payload)
 		},
-		filtersUpdated: (state, action) => {
+		filterNameUpdated: (state, action) => {
 			state.filter = action.payload
 		},
 		clearEpisodes: (state) => {
 			state.episodes = []
+		},
+		filtersUpdated: (state, action) => {
+			state.filtersUpdated = action.payload
 		}
 	}
 });
 
-export default episodesSlice.reducer;
-
 export const {
-	episodesUpdated,
+	episodesUpdate,
+	filterNameUpdated,
 	filtersUpdated,
 	clearEpisodes
 } = episodesSlice.actions;
+
+export default episodesSlice.reducer;

@@ -60,25 +60,6 @@ export const apiSlice = createApi({
 			},
 			providesTags: ['Characters']
 		}),
-		getMultipleEpisodesInfo: builder.query({
-			query: ids => `/episode/${ids}`,
-			transformResponse: data => {
-				if (Array.isArray(data)) {
-					return data.map(item => ({
-						episode: item.episode,
-						name: item.name,
-						date: item.air_date
-					}))
-				} else {
-					return ({
-						episode: data.episode,
-						name: data.name,
-						date: data.air_date
-					});
-				}
-			},
-			providesTags: ['Episodes']
-		}),
 		getLocations: builder.query({
 			query: ({
 				page,
@@ -119,13 +100,43 @@ export const apiSlice = createApi({
 				}
 			},
 			providesTags: ['Locations', 'Episodes']
-		})
+		}),
+		getEpisodes: builder.query({
+			query: ({ page, name }) => {
+				let request = `/episode?page=${page}`;
+				if (name) request += `&name=${name}`;
+				console.log(request);
+				return request;
+			},
+			transformResponse: response => response.results,
+			providesTags: ['Episodes']
+		}),
+		getMultipleEpisodesInfo: builder.query({
+			query: ids => `/episode/${ids}`,
+			transformResponse: data => {
+				if (Array.isArray(data)) {
+					return data.map(item => ({
+						episode: item.episode,
+						name: item.name,
+						date: item.air_date
+					}))
+				} else {
+					return ({
+						episode: data.episode,
+						name: data.name,
+						date: data.air_date
+					});
+				}
+			},
+			providesTags: ['Episodes']
+		}),
 	})
 });
 
 export const { useGetCharactersQuery,
 			useGetSingleCharacterQuery,
 			useGetMultipleCharactersInfoQuery,
-			useGetMultipleEpisodesInfoQuery,
 			useGetLocationsQuery,
-			useGetSingleInfoQuery } = apiSlice;
+			useGetSingleInfoQuery,
+			useGetMultipleEpisodesInfoQuery,
+			useGetEpisodesQuery } = apiSlice;

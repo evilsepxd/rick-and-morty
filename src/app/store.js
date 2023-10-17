@@ -1,6 +1,7 @@
 import { apiSlice } from '../api/apiSlice';
 import characters from '../features/CharactersList/charactersSlice';
 import locations from '../features/LocationsList/locationsSlice';
+import episodes from '../features/EpisodesList/episodesSlice';
 
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -8,7 +9,8 @@ const store = configureStore({
 	reducer: {
 		[apiSlice.reducerPath]: apiSlice.reducer,
 		characters,
-		locations
+		locations,
+		episodes
 	},
 	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware),
 	devTools: process.env.NODE_ENV !== 'production'
