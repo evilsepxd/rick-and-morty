@@ -1,0 +1,53 @@
+.single-page {
+	padding: 30px 0 44px;
+	&__title {
+		color: #081F32;
+		text-align: center;
+		font-size: 36px;
+		font-weight: 400;
+	}
+	&__list {
+		margin-top: 24px;
+	
+		display: grid;
+		grid-template: minmax(244px, auto) / repeat(4, 240px);
+		gap: 24px 20px;
+	}
+	&__subtitle {
+		margin-top: 64px;
+		color: #8E8E93;
+
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0.15px;
+	}
+	&__info {
+		margin-top: 24px;
+		display: grid;
+		grid-template: auto / repeat(4, 240px);
+		column-gap: 20px;
+		&-title {
+			color: #081F32;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 24px;
+			letter-spacing: 0.15px;
+		}
+		&-subtitle {
+			color: #6E798C;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+			letter-spacing: 0.25px;
+		}
+		&-item {
+			&_1 {
+				grid-column: 2 / 3;
+			}
+			&_2 {
+				grid-column: 3 / 4;
+			}
+		}
+	}
+}

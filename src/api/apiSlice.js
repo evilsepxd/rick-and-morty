@@ -39,6 +39,27 @@ export const apiSlice = createApi({
 			}),
 			providesTags: ['Characters']
 		}),
+		getMultipleCharactersInfo: builder.query({
+			query: ids => `/character/${ids}`,
+			transformResponse: data => {
+				if (Array.isArray(data)) {
+					return data.map(item => ({
+						name: item.name,
+						image: item.image,
+						species: item.species,
+						id: item.id
+					}))
+				} else {
+					return ({
+						name: data.name,
+						image: data.image,
+						species: data.species,
+						id: data.id
+					});
+				}
+			},
+			providesTags: ['Characters']
+		}),
 		getMultipleEpisodesInfo: builder.query({
 			query: ids => `/episode/${ids}`,
 			transformResponse: data => {
@@ -75,10 +96,36 @@ export const apiSlice = createApi({
 			transformResponse: response => response.results,
 			providesTags: ['Locations']
 		}),
+		getSingleInfo: builder.query({
+			query: ({ dataID, pageType }) => {
+				console.log(`/${pageType}/${dataID}`);
+				return `/${pageType}/${dataID}`;
+			},
+			transformResponse: data => {
+				if (/location\/\d*$/.test(data.url)) {
+					return ({
+						name: data.name,
+						firstTitle: data.type,
+						secondTitle: data.dimension,
+						characters: data.residents
+					});
+				} else {
+					return ({
+						name: data.name,
+						firstTitle: data.episode,
+						secondTitle: data.air_date,
+						characters: data.characters
+					});
+				}
+			},
+			providesTags: ['Locations', 'Episodes']
+		})
 	})
 });
 
 export const { useGetCharactersQuery,
 			useGetSingleCharacterQuery,
+			useGetMultipleCharactersInfoQuery,
 			useGetMultipleEpisodesInfoQuery,
-			useGetLocationsQuery } = apiSlice;
+			useGetLocationsQuery,
+			useGetSingleInfoQuery } = apiSlice;

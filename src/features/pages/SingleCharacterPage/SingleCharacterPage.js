@@ -87,7 +87,7 @@ const SingleCharacterPage = () => {
 							<div className="single-char__item-descr">{info.type ? info.type : 'Unknown'}</div>
 						</li>
 						<li className="single-char__item">
-							<Link className="single-char__link">
+							<Link to={`/location/${info.location.url.replace(/\D/g, '')}`} className="single-char__link">
 								<h3 className="single-char__item-title">Location</h3>
 								<div className="single-char__item-descr">{info.location.name}</div>
 								<img src={arrowIconSrc} alt='arrow' className="single-char__link-img" />
