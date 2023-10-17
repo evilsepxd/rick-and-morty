@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import './locationsList.scss';
+import '../../style/listStyle.scss';
 
 const LocationsList = () => {
 

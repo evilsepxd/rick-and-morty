@@ -1,0 +1,8 @@
+.locations__list {
+	margin-top: 65px;
+
+	display: grid;
+	grid-template: minmax(128px, auto) / repeat(4, 240px);
+	grid-auto-rows: minmax(128px, auto);
+	gap: 24px 20px;
+}

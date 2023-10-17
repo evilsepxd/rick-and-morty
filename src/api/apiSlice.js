@@ -118,13 +118,15 @@ export const apiSlice = createApi({
 					return data.map(item => ({
 						episode: item.episode,
 						name: item.name,
-						date: item.air_date
+						date: item.air_date,
+						id: item.id
 					}))
 				} else {
 					return ({
 						episode: data.episode,
 						name: data.name,
-						date: data.air_date
+						date: data.air_date,
+						id: data.id
 					});
 				}
 			},

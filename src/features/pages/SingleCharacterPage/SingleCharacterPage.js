@@ -32,9 +32,10 @@ const SingleCharacterPage = () => {
 
 	const renderEpisodes = (data) => {
 		const layout = (episode, i) => {
+			console.log(episode);
 			return (
 				<li key={i} className="single-char__item">
-					<Link className="single-char__link">
+					<Link to={`/episode/${episode.id}`} className="single-char__link">
 						<h3 className="single-char__item-title">{episode.episode}</h3>
 						<div className="single-char__item-descr">{episode.name}</div>
 						<div className="single-char__item-date">{episode.date}</div>

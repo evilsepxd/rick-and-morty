@@ -1,11 +1,19 @@
+import { useDispatch } from 'react-redux';
 
+import {
+	filterNameUpdated,
+	filtersUpdated
+} from '../EpisodesList/episodesSlice';
 
 import './filters.scss';
 
 const EpisodesFilter = () => {
 
-	const handleChange = () => {
-		return;
+	const dispatch = useDispatch();
+
+	const handleChange = (e) => {
+		dispatch(filtersUpdated(true));
+		dispatch(filterNameUpdated(e.target.value));
 	}
 
 	return (
