@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
 	filtersUpdated,
@@ -10,8 +10,9 @@ import {
 import './filters.scss';
 
 const LocationsFilter = () => {
-	
 	const dispatch = useDispatch();
+	
+	const { name, type, dimension } = useSelector(state => state.locations.filters);
 
 	const handleChange = (e) => {
 		const t = e.target;
@@ -39,6 +40,7 @@ const LocationsFilter = () => {
 					name='name' 
 					placeholder='Filter by name...'
 					onChange={handleChange}
+					value={name}
 				/>
 				<label htmlFor='name'/>
 			</div>
@@ -47,6 +49,7 @@ const LocationsFilter = () => {
 					className='filters__input filters__input_select' 
 					name='type'
 					onChange={handleChange}
+					value={type}
 				>
 					<option value='' className='filters__input-option'>
 						Type
@@ -83,6 +86,7 @@ const LocationsFilter = () => {
 					className='filters__input filters__input_select' 
 					name='dimension'
 					onChange={handleChange}
+					value={dimension}
 				>
 					<option value='' className='filters__input-option'>
 						Dimension

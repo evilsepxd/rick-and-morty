@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	episodes: [],
 	filter: '',
-	filtersUpdated: false
+	filtersUpdated: false,
+	page: 1
 }
 
 const episodesSlice = createSlice({
@@ -21,6 +22,12 @@ const episodesSlice = createSlice({
 		},
 		filtersUpdated: (state, action) => {
 			state.filtersUpdated = action.payload
+		},
+		pageIncreased: state => {
+			state.page++;
+		},
+		clearPage: (state, action) => {
+			state.page = action.payload;
 		}
 	}
 });
@@ -29,7 +36,9 @@ export const {
 	episodesUpdate,
 	filterNameUpdated,
 	filtersUpdated,
-	clearEpisodes
+	clearEpisodes,
+	pageIncreased,
+	clearPage
 } = episodesSlice.actions;
 
 export default episodesSlice.reducer;

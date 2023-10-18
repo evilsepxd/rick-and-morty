@@ -8,7 +8,8 @@ const initialState = {
 		gender: '',
 		status: ''
 	},
-	filtersUpdated: false
+	filtersUpdated: false,
+	page: 1
 };
 
 const charactersSlice = createSlice({
@@ -33,6 +34,12 @@ const charactersSlice = createSlice({
 		},
 		charactersUpdate: (state, action) => {
 			state.characters.push(...action.payload);
+		},
+		pageIncreased: state => {
+			state.page++;
+		},
+		clearPage: (state, action) => {
+			state.page = action.payload;
 		}
 	}
 });
@@ -44,7 +51,9 @@ export const {
 	filtersStatusChanged,
 	filtersUpdated,
 	clearCharacters,
-	charactersUpdate
+	charactersUpdate,
+	pageIncreased,
+	clearPage
 } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
 	filterNameUpdated,
@@ -10,6 +10,8 @@ import './filters.scss';
 const EpisodesFilter = () => {
 
 	const dispatch = useDispatch();
+
+	const name = useSelector(state => state.episodes.filter);
 
 	const handleChange = (e) => {
 		dispatch(filtersUpdated(true));
@@ -24,6 +26,7 @@ const EpisodesFilter = () => {
 					name='name' 
 					placeholder='Filter by name or episode (ex. S01 or S01E02)'
 					onChange={handleChange}
+					value={name}
 				/>
 				<label htmlFor='name'/>
 			</div>

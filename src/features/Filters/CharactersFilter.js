@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { filtersNameChanged,
 		filtersGenderChanged,
@@ -11,6 +11,8 @@ import './filters.scss';
 const CharactersFilter = () => {
 
 	const dispatch = useDispatch();
+
+	const { name, species, gender, status } = useSelector(state => state.characters.filters);
 
 	const handleChange = (e) => {
 		const t = e.target;
@@ -41,6 +43,7 @@ const CharactersFilter = () => {
 					name='name' 
 					placeholder='Filter by name...'
 					onChange={handleChange}
+					value={name}
 				/>
 				<label htmlFor='name'/>
 			</div>
@@ -49,6 +52,7 @@ const CharactersFilter = () => {
 					className='filters__input filters__input_select' 
 					name='species'
 					onChange={handleChange}
+					value={species}
 				>
 					<option value='' className='filters__input-option'>
 						Species
@@ -70,6 +74,7 @@ const CharactersFilter = () => {
 					className='filters__input filters__input_select' 
 					name='gender'
 					onChange={handleChange}
+					value={gender}
 				>
 					<option value='' className='filters__input-option'>
 						Gender
@@ -94,6 +99,7 @@ const CharactersFilter = () => {
 					className='filters__input filters__input_select' 
 					name='status'
 					onChange={handleChange}
+					value={status}
 				>
 					<option value='' className='filters__input-option'>
 						Status

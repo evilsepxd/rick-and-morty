@@ -7,7 +7,8 @@ const initialState = {
 		type: '',
 		dimension: ''
 	},
-	filtersUpdated: false
+	filtersUpdated: false,
+	page: 1
 }
 
 const locationsSlice = createSlice({
@@ -30,6 +31,12 @@ const locationsSlice = createSlice({
 		filtersDimensionChanged: (state, action) => {
 			state.filters.dimension = action.payload;
 		},
+		pageIncreased: state => {
+			state.page++;
+		},
+		clearPage: (state, action) => {
+			state.page = action.payload;
+		}
 	}
 });
 
@@ -39,7 +46,9 @@ export const {
 	locationsUpdate,
 	filtersNameChanged,
 	filtersTypeChanged,
-	filtersDimensionChanged
+	filtersDimensionChanged,
+	pageIncreased,
+	clearPage
 } = locationsSlice.actions;
 
 export default locationsSlice.reducer;

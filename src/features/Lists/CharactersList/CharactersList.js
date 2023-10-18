@@ -6,17 +6,19 @@ import { useGetCharactersQuery } from '../../../api/apiSlice';
 import {
 	charactersUpdate,
 	filtersUpdated,
-	clearCharacters
+	clearCharacters,
+	pageIncreased,
+	clearPage
 } from './charactersSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import './charactersList.scss';
 import '../../../style/button.scss';
 
 const CharactersList = () => {
 
-	const [page, setPage] = useState(1);
+	const page = useSelector(state => state.characters.page);
 	const characters = useSelector(state => state.characters.characters);
 	const isFiltersUpdated = useSelector(state => state.characters.filtersUpdated);
 
@@ -43,11 +45,18 @@ const CharactersList = () => {
 	useEffect(() => {
 		if (isFiltersUpdated) {
 			dispatch(clearCharacters());
+			dispatch(clearPage(1));
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(charactersUpdate(results));
+		if (					// проверяем, есть ли в сторе элемент с таким же id,
+			!(				// как в данных, которые приходят с API
+				characters.length 
+				&& characters[characters.length - 1]?.id === results[results.length - 1]?.id
+			)
+		) {
+			dispatch(charactersUpdate(results));
+		}
 	}, [results]);
-
 
 	const renderCharacters = (chars) => {
 		return chars.map(char => {
@@ -62,7 +71,7 @@ const CharactersList = () => {
 	}
 
 	const loadMore = () => {
-		setPage(page => page + 1);
+		dispatch(pageIncreased());
 	}
 
 	if (isLoading) return <Spinner />;

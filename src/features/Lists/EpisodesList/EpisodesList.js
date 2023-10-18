@@ -6,16 +6,19 @@ import { useGetEpisodesQuery } from '../../../api/apiSlice';
 import {
 	episodesUpdate,
 	filtersUpdated,
-	clearEpisodes
+	clearEpisodes,
+	pageIncreased,
+	clearPage
 } from './episodesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import '../listStyle.scss';
+import '../../../style/button.scss';
 
 const EpisodesList = () => {
 
-	const [page, setPage] = useState(1);
+	const page = useSelector(state => state.episodes.page);
 	const episodes = useSelector(state => state.episodes.episodes);
 	const isFiltersUpdated = useSelector(state => state.episodes.filtersUpdated);
 
@@ -35,9 +38,17 @@ const EpisodesList = () => {
 	useEffect(() => {
 		if (isFiltersUpdated) {
 			dispatch(clearEpisodes());
+			dispatch(clearPage(1));
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(episodesUpdate(results));
+		if (					// проверяем, есть ли в сторе элемент с таким же id,
+			!(				// как в данных, которые приходят с API
+				episodes.length 
+				&& episodes[episodes.length - 1]?.id === results[results.length - 1]?.id
+			)
+		) {
+			dispatch(episodesUpdate(results));
+		}
 	}, [results]);
 
 	const renderEpisodes = (episodes) => {
@@ -53,7 +64,7 @@ const EpisodesList = () => {
 	}
 
 	const loadMore = () => {
-		setPage(page => page + 1);
+		dispatch(pageIncreased());
 	}
 
 	if (isLoading) return <Spinner />;

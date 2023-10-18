@@ -6,16 +6,19 @@ import { useGetLocationsQuery } from '../../../api/apiSlice';
 import {
 	clearLocations,
 	filtersUpdated,
-	locationsUpdate
+	locationsUpdate,
+	pageIncreased,
+	clearPage
 } from './locationsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import '../listStyle.scss';
+import '../../../style/button.scss';
 
 const LocationsList = () => {
 
-	const [page, setPage] = useState(1);
+	const page = useSelector(state => state.locations.page);
 	const locations = useSelector(state => state.locations.locations);
 	const isFiltersUpdated = useSelector(state => state.locations.filtersUpdated);
 
@@ -41,9 +44,17 @@ const LocationsList = () => {
 	useEffect(() => {
 		if (isFiltersUpdated) {
 			dispatch(clearLocations());
+			dispatch(clearPage(1));
 			dispatch(filtersUpdated(false));
 		}
-		dispatch(locationsUpdate(results));
+		if (					// проверяем, есть ли в сторе элемент с таким же id,
+			!(				// как в данных, которые приходят с API
+				locations.length 
+				&& locations[locations.length - 1]?.id === results[results.length - 1]?.id
+			)
+		) {
+			dispatch(locationsUpdate(results));
+		}
 	}, [results]);
 
 	const renderLocations = (locations) => {
@@ -58,7 +69,7 @@ const LocationsList = () => {
 	}
 
 	const loadMore = () => {
-		setPage(page => page + 1);
+		dispatch(pageIncreased())
 	}
 
 	if (isLoading) return <Spinner />;
