@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrick_and_morty=self.webpackChunkrick_and_morty||[]).push([[949],{6949:function(n,e,s){s.r(e),s.d(e,{default:function(){return c}});var i=s(184),c=function(n){var e=n.FiltersComponent,s=n.ListComponent,c=n.imgSrc;return(0,i.jsx)("div",{className:"section-page",children:(0,i.jsx)("div",{className:"container",children:(0,i.jsxs)("div",{className:"section-page__inner",children:[(0,i.jsx)("img",{src:c,alt:"Rick and Morty",className:"section-page__img"}),(0,i.jsx)(e,{}),(0,i.jsx)(s,{})]})})})}}}]);
+//# sourceMappingURL=949.b88fe29d.chunk.js.map
