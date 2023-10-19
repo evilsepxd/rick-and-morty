@@ -12,6 +12,7 @@
 		display: grid;
 		grid-template: minmax(244px, auto) / repeat(4, 240px);
 		gap: 24px 20px;
+		justify-content: center;
 	}
 	&__subtitle {
 		margin-top: 64px;
@@ -25,7 +26,8 @@
 	&__info {
 		margin-top: 24px;
 		display: grid;
-		grid-template: auto / repeat(4, 240px);
+		grid-template: auto / repeat(2, 240px);
+		justify-content: center;
 		column-gap: 20px;
 		&-title {
 			color: #081F32;
@@ -41,13 +43,53 @@
 			line-height: 20px;
 			letter-spacing: 0.25px;
 		}
-		&-item {
-			&_1 {
-				grid-column: 2 / 3;
-			}
-			&_2 {
-				grid-column: 3 / 4;
-			}
+	}
+}
+
+@media (max-width: 1200px) {
+	.single-page {
+		padding-top: 64px;
+		&__title {
+			font-size: 40px;
+		}
+		&__list {
+			grid-template: minmax(244px, auto) / repeat(3, 240px);
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.single-page {
+		&__title {
+			font-size: 36px;
+		}
+		&__list {
+			grid-template: minmax(244px, auto) / repeat(2, 240px);
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.single-page {
+		&__title {
+			font-size: 32px;
+		}
+		&__subtitle {
+			margin-top: 42px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.single-page {
+		&__info {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__list {
+			grid-template: minmax(244px, auto) / repeat(1, 240px);
+		}
+		&__subtitle {
+			margin-top: 32px;
 		}
 	}
 }

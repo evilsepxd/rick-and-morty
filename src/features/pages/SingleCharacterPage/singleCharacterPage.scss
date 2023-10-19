@@ -142,9 +142,10 @@
 		&__descr {
 			margin-top: 32px;
 	
-			grid-template: repeat(2, auto) / repeat(2, 1fr);
-			gap: 36px 20px;
+			grid-template: auto / auto;
+			row-gap: 52px;
 			&-title {
+				margin-bottom: 16px;
 				color: #8E8E93;
 	
 				font-size: 20px;

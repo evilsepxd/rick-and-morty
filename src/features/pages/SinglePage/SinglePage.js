@@ -71,11 +71,11 @@ const SinglePage = ({ pageType }) => {
 				<GoBackLink />
 				<div className="single-page__title">{ name }</div>
 				<div className="single-page__info">
-					<div className="single-page__info-item single-page__info-item_1">
+					<div className="single-page__info-item">
 						<div className="single-page__info-title">{ legend.titleFirst }</div>
 						<div className="single-page__info-subtitle">{ firstTitle }</div>
 					</div>
-					<div className="single-page__info-item single-page__info-item_2">
+					<div className="single-page__info-item">
 						<div className="single-page__info-title">{ legend.titleSecond }</div>
 						<div className="single-page__info-subtitle">{ secondTitle }</div>
 					</div>
