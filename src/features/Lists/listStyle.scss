@@ -1,8 +1,42 @@
-.locations__list {
+.list {
 	margin-top: 65px;
 
 	display: grid;
 	grid-template: minmax(128px, auto) / repeat(4, 240px);
 	grid-auto-rows: minmax(128px, auto);
 	gap: 24px 20px;
+	&_characters {
+		margin-top: 61px;
+
+		grid-template-rows: minmax(244px, auto);
+		grid-auto-rows: minmax(244px, auto);
+	}
+}
+
+@media (max-width: 1200px) {
+	.list {
+		grid-template-columns: repeat(3, 240px);
+		justify-content: center;
+	}
+}
+
+@media (max-width: 992px) {
+	.list {
+		grid-template-columns: repeat(2, 240px);
+		justify-content: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.list {
+		grid-template-columns: repeat(2, 240px);
+		justify-content: center;
+	}
+}
+
+@media (max-width: 576px) {
+	.list {
+		grid-template-columns: 240px;
+		justify-content: center;
+	}
 }

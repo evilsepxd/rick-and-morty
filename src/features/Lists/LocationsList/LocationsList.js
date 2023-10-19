@@ -78,7 +78,7 @@ const LocationsList = () => {
 	const elements = renderLocations(locations);
 	return (
 		<>
-			<div className='locations__list'>
+			<div className='list'>
 				{ elements }
 			</div>
 			<button className="btn" onClick={loadMore} disabled={isFetching || page >= pages}>LOAD MORE</button>

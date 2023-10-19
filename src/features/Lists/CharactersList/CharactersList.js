@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import './charactersList.scss';
+import '../listStyle.scss';
 import '../../../style/button.scss';
 
 const CharactersList = () => {
@@ -80,7 +80,7 @@ const CharactersList = () => {
 	const elements = renderCharacters(characters);
 	return (
 		<>
-			<div className='characters__list'>
+			<div className='list list_characters'>
 				{ elements }
 			</div>
 			<button className="btn" onClick={loadMore} disabled={isFetching || page >= pages}>LOAD MORE</button>

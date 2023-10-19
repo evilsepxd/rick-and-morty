@@ -64,9 +64,8 @@ const SingleCharacterPage = () => {
 				<img src={info.image} alt={info.name} className="single-char__img" />
 				<h1 className="single-char__title">{info.name}</h1>
 				<div className="single-char__descr">
-					<h2 className="single-char__descr-title">Informations</h2>
-					<h2 className="single-char__descr-title">Episodes</h2>
 					<ul className="single-char__info">
+						<h2 className="single-char__descr-title">Informations</h2>
 						<li className="single-char__item">
 							<h3 className="single-char__item-title">Gender</h3>
 							<div className="single-char__item-descr">{info.gender}</div>
@@ -96,6 +95,7 @@ const SingleCharacterPage = () => {
 						</li>
 					</ul>
 					<ul className="single-char__episodes">
+						<h2 className="single-char__descr-title">Episodes</h2>
 						{ renderEpisodes(episodeData) }
 					</ul>
 				</div>

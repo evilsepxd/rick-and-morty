@@ -22,3 +22,9 @@
 		font-weight: 700;
 	}
 }
+
+@media (max-width: 1200px) {
+	.go-back-link {
+		top: -40px;
+	}
+}

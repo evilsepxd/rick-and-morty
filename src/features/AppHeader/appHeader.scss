@@ -32,3 +32,11 @@
 		text-shadow: 0px 0px 5px $green;
 	}
 }
+
+@media (max-width: 576px) {
+	.header {
+		&__links {
+			overflow-x: auto;
+		}
+	}
+}

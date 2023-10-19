@@ -68,3 +68,43 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.filters {
+		&__form {
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.filters {
+		&__form {
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.filters {
+		&__form {
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.filters {
+		&__form {
+			flex-wrap: wrap;
+		}
+		&__input {
+			&_long {
+				width: 240px;
+			}
+			&_xl {
+				width: 240px;
+			}
+		}
+	}
+}
