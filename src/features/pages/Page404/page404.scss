@@ -14,3 +14,14 @@
 		margin-top: 50px;
 	}
 }
+
+@media (max-width: 576px) {
+	.page404 {
+		&__title {
+			font-size: 24px;
+		}
+		&__img {
+			width: 250px;
+		}
+	}
+}

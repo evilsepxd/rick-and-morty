@@ -18,6 +18,12 @@
 	}
 }
 
+@media (max-width: 576px) {
+	.error {
+		margin-top: 60px;
+	}
+}
+
 @keyframes floating-text {
 	from {
 		transform: rotate(3deg);

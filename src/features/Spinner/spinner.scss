@@ -5,6 +5,12 @@
 	animation: spinner-motion 3s infinite ease-in-out;
 }
 
+@media (max-width: 576px) {
+	.spinner {
+		margin-top: 60px;
+	}
+}
+
 @keyframes spinner-motion {
 	from {
 		transform: translateY(0);
