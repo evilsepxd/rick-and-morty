@@ -3,6 +3,8 @@
 .header {
 	height: 60px;
 	box-shadow: -2px 0px 8px 2px rgba(0, 0, 0, 0.10);
+	width: 100%;
+	background: #fff;
 	&__inner {
 		display: flex;
 		align-items: center;
@@ -35,8 +37,58 @@
 
 @media (max-width: 576px) {
 	.header {
+		position: fixed;
+		top: 0;
+		z-index: 10;
 		&__links {
-			overflow-x: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 3px;
+			span {
+				width: 18px;
+				height: 2px;
+				background: rgba(0, 0, 0, .54);
+			}
+		}
+		&__link {
+			font-size: 24px;
+		}
+		&__portal {
+			position: fixed;
+			top: 60px;
+			left: 0;
+
+			padding-top: 38px;
+			display: flex;
+			flex-direction: column;
+			gap: 48px;
+			align-items: center;
+
+			width: 100%;
+			height: 100%;
+			background: #fff;
 		}
 	}
+}
+
+.header__portal-enter {
+	opacity: 0;
+	transform: scale(.9);
+}
+ 
+.header__portal-enter-active {
+	opacity: 1;
+	transform: scale(1);
+	transition: all 200ms;
+}
+ 
+.header__portal-exit {
+	opacity: 1;
+	transform: scale(1);
+}
+ 
+.header__portal-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: all 200ms;
 }

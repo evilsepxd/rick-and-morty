@@ -82,6 +82,7 @@
 
 @media (max-width: 576px) {
 	.single-page {
+		margin-top: 60px;
 		&__info {
 			grid-template-columns: repeat(2, 1fr);
 		}
